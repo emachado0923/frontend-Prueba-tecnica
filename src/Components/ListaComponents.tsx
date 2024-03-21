@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
+//import movil from '../Interfaces/Dispositivo'
 import axios from "axios";
-import cors from "cors";
+
 
 const ListaComponents = () => {
   const getProducts = async () => {
-    try {
-      const url = "https://jsonplaceholder.typicode.com/users";
+    try {      
       const url2 = "http://localhost:3000/products";
       const response = await axios.get(url2).then();
       console.log(response);
@@ -22,7 +22,7 @@ const ListaComponents = () => {
       .catch((err) => console.log(err));
   }, []);
   return (
-    <div>
+    <div className="col-md-8">
       <table className="table table-success table-striped">
         <thead>
           <tr>
@@ -30,7 +30,7 @@ const ListaComponents = () => {
             <th scope="col">Nombre</th>
             <th scope="col">Modelo</th>
             <th scope="col">Almacenamiento</th>
-            <th scope="col">Conotraseña</th>
+            <th scope="col">Contraseña</th>
             <th scope="col">Creado</th>
           </tr>
         </thead>

@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import axis from 'axios';
+import axios from "axios";
 
 const FormularioComponents = () => {
   const {
@@ -7,13 +8,20 @@ const FormularioComponents = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  
 
   const onSubmit = handleSubmit((data) => {
     console.log(data);
+    axios.post('http://localhost:3000/products',data)
+    .then(res =>{
+      console.log(res)
+    })
+    .catch(errors=>console.log(errors))
   });
 
   return (
     <>
+    <div className="col-md-4">
       <div className="card">
         <div className="card-body">
           <form onSubmit={onSubmit}>
@@ -102,6 +110,7 @@ const FormularioComponents = () => {
             </button>
           </form>
         </div>
+      </div>
       </div>
     </>
   );
