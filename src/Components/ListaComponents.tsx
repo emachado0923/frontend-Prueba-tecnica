@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 //import movil from '../Interfaces/Dispositivo'
 import axios from "axios";
 
-
 const ListaComponents = () => {
   const getProducts = async () => {
-    try {      
-      const url2 = "http://localhost:3000/products";
-      const response = await axios.get(url2).then();
+    try {
+      const url = "http://localhost:3000/products";
+      const response = await axios.get(url).then();
       console.log(response);
     } catch (error) {
       console.error(error);
@@ -26,7 +25,6 @@ const ListaComponents = () => {
       <table className="table table-success table-striped">
         <thead>
           <tr>
-            <th scope="col">#</th>
             <th scope="col">Nombre</th>
             <th scope="col">Modelo</th>
             <th scope="col">Almacenamiento</th>
